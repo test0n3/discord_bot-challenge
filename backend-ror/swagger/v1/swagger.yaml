@@ -1,0 +1,96 @@
+---
+openapi: 3.0.1
+info:
+  title: API V1
+  version: v1
+paths:
+  "/api/v1/messages":
+    get:
+      summary: Retrieves all pending messages
+      tags:
+      - Messages
+      responses:
+        '200':
+          description: messages found
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                  message_body:
+                    type: string
+                  release_date:
+                    type: string
+                  state:
+                    type: integer
+                    minimum: 1
+                required:
+                - _id
+                - message_body
+                - release_date
+                - state
+    post:
+      summary: Create a message
+      tags:
+      - Messages
+      parameters: []
+      responses:
+        '201':
+          description: message created
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  _id:
+                    type: string
+                  message_body:
+                    type: string
+                  release_date:
+                    type: string
+                  state:
+                    type: integer
+                    minimum: 1
+                required:
+                - _id
+                - message_body
+                - release_date
+                - state
+        '422':
+          description: invalid request
+      requestBody:
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                message_body:
+                  type: string
+                release_date:
+                  type: string
+              required:
+              - message_body
+              - release_date
+  "/api/v1/messages/{id}":
+    delete:
+      summary: Delete a message
+      tags:
+      - Messages
+      parameters:
+      - name: id
+        in: path
+        required: true
+        schema:
+          type: string
+      responses:
+        '204':
+          description: message deleted
+        '404':
+          description: message not found
+servers:
+- url: https://{defaultHost}
+  variables:
+    defaultHost:
+      default: www.example.com

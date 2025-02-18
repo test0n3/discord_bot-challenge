@@ -1,0 +1,21 @@
+<h1>Mensajes Programados</h1>
+<% if @messages.empty? %>
+  <p>Sin mensajes para  mostrar </p>
+<% else %>
+  <table>
+    <thead>
+      <tr>
+        <th>Mensaje</th><th>Fecha Programada</th><th>Acciones</th>
+        </tr>
+    </thead>
+    <tbody>
+      <% @messages.each do |message| %>
+      <tr>
+        <td><%= message.message_body %></td>
+        <td><%= message.release_date %></td>
+        <td><%= button_to "Delete", message, class: 'delete-message-button', method: :delete, data: {turbo_confirm: "Are you sure?" } %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
+<% end %>

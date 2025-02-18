@@ -1,0 +1,25 @@
+services:
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile.dev
+    ports:
+      - "3000:3000"
+    volumes:
+      - .:/usr/src/app
+      - gem_cache:/gems
+    env_file:
+      - .env/development/web
+      - .env/development/database
+
+  database:
+    image: mongodb/mongodb-community-server:latest
+    restart: always
+    ports:
+      - "27017:27017"
+    volumes:
+      - db_data:/var/lib/mongodb/data
+
+volumes:
+  db_data:
+  gem_cache:
