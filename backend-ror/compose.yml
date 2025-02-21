@@ -8,9 +8,9 @@ services:
     volumes:
       - .:/usr/src/app
       - gem_cache:/gems
-    env_file:
-      - .env/development/web
-      - .env/development/database
+    #    env_file:
+      #      - .env/development/web
+      #      - .env/development/database
 
   database:
     image: mongodb/mongodb-community-server:latest
