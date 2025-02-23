@@ -1,0 +1,10 @@
+FROM eclipse-temurin:17
+
+LABEL maintainer="cayala.w@gmail.com"
+
+# RUN addgroup --system spring && adduser --system spring --group spring
+# USER spring:spring
+
+WORKDIR /usr/src/app 
+COPY . /usr/src/app
+ENTRYPOINT [ "./mvnw", "spring-boot:run" ]

@@ -4,7 +4,7 @@
 
 Aplicación desarrollada en: 
 - [Ruby on Rails](https://www.rubyonrails.org/), que facilita desarrollo de la Aplicación.
-- MongoDB, base de datos para documentos, por las características del sistema, no se hace necesario un RDBMS como MySQL, PostgreSQL.
+- MongoDB, base de datos orientado a documentos, por las características del sistema, no se hace necesario un RDBMS como MySQL, PostgreSQL.
 
 El sistema usa de un borrado suave, los registros no se borran, solo cambian su estado.
 
